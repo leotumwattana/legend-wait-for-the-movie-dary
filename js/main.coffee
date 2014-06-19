@@ -1,6 +1,9 @@
 $ ->
 
   $('#search').on 'submit', (e) ->
+
+    e.preventDefault()
+
     searchTerm = $('#searchField').val()
 
     masterResponse = $.ajax(
@@ -17,6 +20,7 @@ $ ->
         $('.movies').append(li)
 
       $('a').click (e) ->
+        e.preventDefault()
         imdbID = $(@).data('imdbid')
 
         detailResponse = $.ajax(
